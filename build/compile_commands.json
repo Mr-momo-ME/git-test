@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g   -Wall -g -o CMakeFiles\\main.dir\\main.cpp.obj -c \"C:\\Work\\C++\\VS CODE\\project_heima\\35 project - PC room reservation system\\main.cpp\"",
+  "file": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g   -Wall -g -o CMakeFiles\\main.dir\\manager.cpp.obj -c \"C:\\Work\\C++\\VS CODE\\project_heima\\35 project - PC room reservation system\\manager.cpp\"",
+  "file": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/manager.cpp",
+  "output": "CMakeFiles/main.dir/manager.cpp.obj"
+},
+{
+  "directory": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g   -Wall -g -o CMakeFiles\\main.dir\\orderFile.cpp.obj -c \"C:\\Work\\C++\\VS CODE\\project_heima\\35 project - PC room reservation system\\orderFile.cpp\"",
+  "file": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/orderFile.cpp",
+  "output": "CMakeFiles/main.dir/orderFile.cpp.obj"
+},
+{
+  "directory": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g   -Wall -g -o CMakeFiles\\main.dir\\sutdent.cpp.obj -c \"C:\\Work\\C++\\VS CODE\\project_heima\\35 project - PC room reservation system\\sutdent.cpp\"",
+  "file": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/sutdent.cpp",
+  "output": "CMakeFiles/main.dir/sutdent.cpp.obj"
+},
+{
+  "directory": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g   -Wall -g -o CMakeFiles\\main.dir\\teacher.cpp.obj -c \"C:\\Work\\C++\\VS CODE\\project_heima\\35 project - PC room reservation system\\teacher.cpp\"",
+  "file": "C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/teacher.cpp",
+  "output": "CMakeFiles/main.dir/teacher.cpp.obj"
+}
+]

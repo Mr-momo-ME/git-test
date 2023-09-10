@@ -1,0 +1,3 @@
+C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build/CMakeFiles/main.dir
+C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build/CMakeFiles/edit_cache.dir
+C:/Work/C++/VS CODE/project_heima/35 project - PC room reservation system/build/CMakeFiles/rebuild_cache.dir

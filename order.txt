@@ -1,0 +1,4 @@
+date:1 interval:1 stuId:1 stuName:link roomId:1 status:1
+date:2 interval:2 stuId:2 stuName:zelda roomId:2 status:1
+date:4 interval:1 stuId:1 stuName:link roomId:1 status:1
+date:3 interval:2 stuId:3 stuName:mifa roomId:3 status:1
