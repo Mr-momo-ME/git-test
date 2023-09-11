@@ -214,14 +214,16 @@ void Student::cancelOrder()
     cout << "审核中或预约成功的记录可以取消，请输入取消的记录" << endl;
     cout << "----------------------------------------" << endl;
     int count = 0; //统计该学生有多少条预约记录
-    vector<int> v; //用于记录每条预约记录是在of.m_orderData的哪一行数据
+    vector<int> v; //用于记录每条预约记录是在OrderFile文件中的哪一行数据
     for (int i = 0; i < of.m_Size; i++)
     {
+        //  先判断文件中是否有自身学号的预约
         if (atoi(of.m_orderData[i]["stuId"].c_str()) == this->m_Id)
         {
-            v.push_back(i); // v[count] == i
+            // 再筛选状态，仅审核中和审核通过的预约可以取消
             if (of.m_orderData[i]["status"] == "1" || of.m_orderData[i]["status"] == "2")
             {
+                v.push_back(i); // v[count] == i
                 cout << count << "、";
                 cout << "预约日期: 周" << of.m_orderData[i]["date"];
                 cout << ", 时段: " << (of.m_orderData[i]["interval"] == "1" ? "上午" : "下午");
@@ -234,14 +236,6 @@ void Student::cancelOrder()
                 if (of.m_orderData[i]["status"] == "2")
                 {
                     status += "预约成功";
-                }
-                if (of.m_orderData[i]["status"] == "-1")
-                {
-                    status += "预约失败,审核未通过";
-                }
-                if (of.m_orderData[i]["status"] == "0")
-                {
-                    status += "取消预约";
                 }
                 cout << status << endl;
                 count++;
@@ -256,22 +250,19 @@ void Student::cancelOrder()
         return;
     }
     int select = -1;
-    cout << "请输入您想取消预约的编号:";
+    cout << "请输入您想取消预约的编号, -1代表返回菜单" << endl;
     while (1)
     {
         cin >> select;
+        if (select == -1)
+        {
+            break;
+        }
         if (select >= 0 && select <= (int)v.size() - 1)
         {
-            if (of.m_orderData[v[select]]["status"] != "0")
-            {
-                of.m_orderData[v[select]]["status"] = "0";
-                of.updateOrder(); //上面操作只改变了容器的值，而每次调用查看预约，容器的值是根据文件重新初始化的，所以还要更新到文件中。
-                cout << "取消预约成功" << endl;
-            }
-            else
-            {
-                cout << "该预约已被取消" << endl;
-            }
+            of.m_orderData[v[select]]["status"] = "0";
+            of.updateOrder(); //上面操作只改变了容器的值，而每次调用查看预约，容器的值是根据文件重新初始化的，所以还要更新到文件中。
+            cout << "取消预约成功" << endl;
             break;
         }
         else
