@@ -54,7 +54,7 @@ void Teacher::showAllOrder()
         }
         if (of.m_orderData[i]["status"] == "-1")
         {
-            status += "预约失败";
+            status += "预约失败,审核未通过";
         }
         if (of.m_orderData[i]["status"] == "0")
         {
@@ -69,4 +69,69 @@ void Teacher::showAllOrder()
 // 审核预约
 void Teacher::validOrder()
 {
+    orderFile of; // 创建预约类
+    if (of.m_Size == 0)
+    {
+        cout << "无预约记录" << endl;
+        return;
+    }
+    vector<int> v;
+    int count = 0;
+    for (int i = 0; i < of.m_Size; i++)
+    {
+        if (of.m_orderData[i]["status"] == "1")
+        {
+            v.push_back(i);
+            cout << count << "、";
+            cout << "预约日期: 周" << of.m_orderData[i]["date"];
+            cout << ", 时段: " << (of.m_orderData[i]["interval"] == "1" ? "上午" : "下午");
+            cout << ", 学号:" << of.m_orderData[i]["stuId"];
+            cout << ", 姓名:" << of.m_orderData[i]["stuName"];
+            cout << ", 机房: " << of.m_orderData[i]["roomId"];
+            // string status = ", 状态: "; // 0 1 2 -1
+            cout << ", 状态: 审核中" << endl;
+            count++;
+        }
+    }
+    if (count == 0)
+    {
+        cout << "没有需要审核的预约" << endl;
+        system("pause");
+        system("cls");
+        return;
+    }
+    int select = -1;
+    cout << "请输入您想审核的预约编号:" << endl;
+    while (1)
+    {
+        cin >> select;
+        if (select >= 0 && select <= (int)v.size() - 1)
+        {
+            cout << "请输入你的选择: 1、审核通过 2、审核不通过" << endl;
+            int choice = 0;
+            while (1)
+            {
+                cin >> choice;
+                if (choice == 1 || choice == 2)
+                {
+                    of.m_orderData[v[select]]["status"] = choice == 1 ? "2" : "-1";
+                    of.updateOrder(); //上面操作只改变了容器的值，而每次调用查看预约，容器的值是根据文件重新初始化的，所以还要更新到文件中。
+                    cout << "已完成审核!" << endl;
+                    break;
+                }
+                else
+                {
+                    cout << "输入有误，请重新输入" << endl;
+                }
+            }
+            break;
+        }
+        else
+        {
+            cout << "输入有误，请重新输入:" << endl;
+        }
+    }
+    system("pause");
+    system("cls");
+    return;
 }
