@@ -34,6 +34,8 @@ void Teacher::showAllOrder()
     if (of.m_Size == 0)
     {
         cout << "无预约记录" << endl;
+        system("pause");
+        system("cls");
         return;
     }
     for (int i = 0; i < of.m_Size; i++)
@@ -73,10 +75,14 @@ void Teacher::validOrder()
     if (of.m_Size == 0)
     {
         cout << "无预约记录" << endl;
+        system("pause");
+        system("cls");
         return;
     }
-    vector<int> v;
-    int count = 0;
+    vector<int> v; //用于记录每条预约记录是在OrderFile文件中的哪一行数据
+    int count = 0; //统计有多少条待审核的预约记录
+    cout << "待审核的预约记录如下" << endl;
+    cout << "----------------------------------------" << endl;
     for (int i = 0; i < of.m_Size; i++)
     {
         if (of.m_orderData[i]["status"] == "1")
@@ -101,17 +107,21 @@ void Teacher::validOrder()
         return;
     }
     int select = -1;
-    cout << "请输入您想审核的预约编号:" << endl;
+    cout << "请输入您想审核的预约编号, -1代表返回菜单" << endl;
     while (1)
     {
-        cin >> select;
+        cin >> select; //选择预约编号
+        if (select == -1)
+        {
+            break;
+        }
         if (select >= 0 && select <= (int)v.size() - 1)
         {
-            cout << "请输入你的选择: 1、审核通过 2、审核不通过" << endl;
+            cout << "请输入审核结果: 1、通过   2、不通过" << endl;
             int choice = 0;
             while (1)
             {
-                cin >> choice;
+                cin >> choice; //选择审核结果
                 if (choice == 1 || choice == 2)
                 {
                     of.m_orderData[v[select]]["status"] = choice == 1 ? "2" : "-1";
