@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include "Identity.h"
+#include "orderFile.h"
 #include "globalFile.h"
 using namespace std;
 // 老师类:身份抽象类

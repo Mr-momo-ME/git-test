@@ -215,6 +215,7 @@ void Student::cancelOrder()
                 of.m_orderData[i]["status"] = "0";
                 of.updateOrder(); //上面操作只改变了容器的值，而每次调用查看预约，容器的值是根据文件重新初始化的，所以还要更新到文件中。
                 cout << "取消预约成功" << endl;
+                break;
             }
             else if (of.m_orderData[i]["status"] == "0")
             {
