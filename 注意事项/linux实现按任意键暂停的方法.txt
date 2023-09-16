@@ -1,0 +1,10 @@
+单个文件中这个好用
+void PAUSE(void)
+{
+    printf("按任意键继续...");
+    getchar();
+}
+PAUSE()就可以实现system("pause")一样的功能了
+
+多文件中，按回车继续
+system("read -p 'Press Enter to continue...' var");
