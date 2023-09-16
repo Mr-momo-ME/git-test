@@ -1,7 +1,7 @@
 {   
     "version": "2.0.0",
     "options": {
-        "cwd": "${fileDirname}/build"
+        "cwd": "${fileDirname}/build"//cwd是指在哪个路径下执行命令，会和工程中文件使用的相对路径有关。因为cmake和make必须在${fileDirname}/build路径下运行，而在${fileDirname}/build使用测试命令就导致，.h或.cpp文件中使用的相对路径必须要用../才指向工程的根目录
     },
     "tasks": [
         {
@@ -31,6 +31,9 @@
             ]
         },
         {//这个大括号里是‘运行(run)’任务，一些设置与上面的构建任务性质相同
+            "options": {
+            "cwd": "${fileDirname}"//cwd是指在哪个路径下执行命令，会和工程中文件使用的相对路径有关。因为cmake和make必须在${fileDirname}/build路径下运行，而在${fileDirname}/build使用测试命令就导致，.h或.cpp文件中使用的相对路径必须要用../才指向工程的根目录
+            },
             "label": "run",
             "type": "shell",
             "dependsOn": "Build", //任务依赖，因为要运行必须先构建，所以执行这个任务前必须先执行build任务，
