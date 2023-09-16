@@ -1,0 +1,4 @@
+linux上创建用户（https://blog.csdn.net/qq_34243930/article/details/102779059） 
+linux上要提前安装和启动ssh服务，本地vscode要安装remote-ssh相关插件（https://www.bilibili.com/video/BV1A24y1F7UK/?spm_id_from=333.337.top_right_bar_window_history.content.click&vd_source=e5176c2b73a5bb92baaad7453a61047a）
+vscode上要给远程ssh安装一些插件，像C/C++、cmake tool之类的。尤其要注意一点，Linux上要自行安装cmake软件，不然是没有cmake可执行程序的，且要在cmake tool上设置cmake path，注意有本地路径（win）和ssh路径（linux）
+最后，就是要写linux下的tasks.json和launch.json
